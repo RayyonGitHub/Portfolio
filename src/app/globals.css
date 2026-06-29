@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg font-body text-ink antialiased;
+  }
+
+  ::selection {
+    @apply bg-accent/30 text-ink;
+  }
+
+  *:focus-visible {
+    outline: none;
+  }
+}
