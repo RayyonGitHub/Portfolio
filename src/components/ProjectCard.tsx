@@ -49,7 +49,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </ul>
       ) : (
         <p className="mt-5 border-t border-border-subtle pt-4 text-sm text-ink-faint">
-          Projet académique / freelance — pas de dépôt public.
+          Projet académique ou freelance, sans dépôt public.
         </p>
       )}
     </article>

@@ -14,8 +14,8 @@ export function ContactForm() {
     const email = String(formData.get("email") ?? "");
     const message = String(formData.get("message") ?? "");
 
-    const subject = encodeURIComponent(`Contact portfolio — ${name}`);
-    const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+    const subject = encodeURIComponent(`Contact portfolio (${name})`);
+    const body = encodeURIComponent(`${message}\n\nEnvoyé par ${name} (${email})`);
 
     window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
     setStatus("sent");
@@ -75,9 +75,7 @@ export function ContactForm() {
       </button>
 
       <p role="status" aria-live="polite" className="text-sm text-ink-muted">
-        {status === "sent"
-          ? "Votre client email devrait s'ouvrir avec le message prérempli."
-          : ""}
+        {status === "sent" ? "Votre client email devrait s'ouvrir avec le message prérempli." : ""}
       </p>
     </form>
   );

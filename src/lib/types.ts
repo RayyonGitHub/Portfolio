@@ -27,13 +27,7 @@ export interface Education {
   period: string;
 }
 
-export type ProjectCategory =
-  | "web"
-  | "mobile"
-  | "security"
-  | "desktop"
-  | "management"
-  | "freelance";
+export type ProjectCategory = "web" | "mobile" | "desktop" | "freelance";
 
 export interface ProjectRepo {
   label: string;

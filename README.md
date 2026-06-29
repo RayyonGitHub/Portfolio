@@ -1,6 +1,6 @@
-# Rayane Bahmed — Portfolio
+# Rayane Bahmed | Portfolio
 
-Portfolio professionnel construit avec Next.js 14 (App Router), TypeScript et Tailwind CSS. Contenu réel extrait du CV de Rayane Bahmed et des dépôts GitHub publics du projet.
+Portfolio professionnel construit avec Next.js 14 (App Router), TypeScript et Tailwind CSS. Site monopage (single-page) : tout le contenu vit sur `/`, organisé en sections ancrées, avec contenu réel extrait du CV de Rayane Bahmed et des dépôts GitHub publics du projet.
 
 ## Stack
 
@@ -12,23 +12,23 @@ Portfolio professionnel construit avec Next.js 14 (App Router), TypeScript et Ta
 
 ## Structure
 
-```
+```text
 src/
 ├── app/
-│   ├── layout.tsx          # Layout racine, fonts, métadonnées globales
-│   ├── page.tsx             # / — Hero + projets phares + parcours
+│   ├── layout.tsx     # Layout racine, fonts, métadonnées globales
+│   ├── page.tsx        # / — toutes les sections : Hero, Parcours, Projets, Compétences, Contact
 │   ├── globals.css
-│   ├── sitemap.ts           # /sitemap.xml généré dynamiquement
-│   ├── robots.ts            # /robots.txt généré dynamiquement
-│   ├── projets/page.tsx      # /projets — toutes les cards projets
-│   ├── competences/page.tsx  # /competences — skills groupés par catégorie
-│   └── contact/
-│       ├── page.tsx
-│       └── ContactForm.tsx   # seul Client Component (interactivité du formulaire)
-├── components/               # Header, Footer, SkipLink, ProjectCard, Badge, SectionHeading, icons
-├── data/                     # profile.ts, projects.ts, skills.ts — contenu réel (pas de lorem ipsum)
-└── lib/types.ts              # types TypeScript partagés
+│   ├── sitemap.ts      # /sitemap.xml généré dynamiquement (une seule URL)
+│   └── robots.ts       # /robots.txt généré dynamiquement
+├── components/
+│   ├── Header.tsx       # Client Component : nav par ancres + indicateur de section active (IntersectionObserver)
+│   ├── ContactForm.tsx  # Client Component : formulaire -> mailto: prérempli
+│   ├── Footer.tsx, SkipLink.tsx, ProjectCard.tsx, Badge.tsx, SectionHeading.tsx, icons.tsx
+├── data/                 # profile.ts, projects.ts, skills.ts — contenu réel (pas de lorem ipsum)
+└── lib/types.ts          # types TypeScript partagés
 ```
+
+Les sections de la page d'accueil ont chacune un `id` (`#top`, `#projets`, `#competences`, `#contact`) ciblé par la nav du `Header`. Le `Header` est le seul composant, avec `ContactForm`, à être un Client Component : il a besoin d'un `IntersectionObserver` pour savoir quelle section est visible et surligner le lien correspondant pendant le scroll.
 
 ## Origine du contenu
 
@@ -37,7 +37,7 @@ src/
   - `ATHLO_COACHING_BACK` / `ATHLO_COACHING_FRONT` / `ATHLO_COACHING_APP`
   - `Outil_Gestion_Stock_Back` / `Outil_Gestion_Stock_Front`
   - `Encoder-Dashcam` / `Decoder-Dashcam`
-- 4 projets du CV sans dépôt public (Simulateur de mobilité urbaine, Apocal'ipssi, Pentest, Marketplace freelance) sont affichés en cards sans lien GitHub, comme convenu.
+- 2 projets du CV sans dépôt public (Simulateur de mobilité urbaine, Marketplace freelance) sont affichés en cards sans lien GitHub. Les projets "Apocal'ipssi" et "Pentest" du CV ont été retirés du portfolio à la demande de l'utilisateur.
 
 ## Développement local
 
@@ -67,16 +67,16 @@ Définir `NEXT_PUBLIC_SITE_URL` dans les paramètres du projet Vercel (ex: `http
 
 ## Formulaire de contact
 
-Le formulaire `/contact` n'a pas de dépendance externe (pas de Formspree configuré) : à la soumission, il construit une URL `mailto:` pré-remplie (sujet + message + email de l'expéditeur) vers `rayanbahmed@gmail.com` et ouvre le client email par défaut de l'utilisateur. Les coordonnées directes (email, téléphone, réseaux) sont aussi affichées en clair sur la page.
+La section `#contact` n'a pas de dépendance externe (pas de Formspree configuré) : à la soumission, le formulaire construit une URL `mailto:` pré-remplie (sujet + message + email de l'expéditeur) vers `rayanbahmed@gmail.com` et ouvre le client email par défaut de l'utilisateur. Les coordonnées directes (email, téléphone, réseaux) sont aussi affichées en clair dans cette section.
 
 ## Accessibilité (WCAG 2.2 AA)
 
-- Skip-link vers le contenu principal sur chaque page.
+- Skip-link vers le contenu principal.
 - Contrastes du thème sombre vérifiés (texte clair sur fond `#0a0a0f`, accent orange `#ff8a3d` réservé aux éléments interactifs).
 - États `focus-visible` explicites sur tous les éléments interactifs (liens, boutons, champs).
-- `aria-label` sur les liens ouvrant un nouvel onglet (GitHub, LinkedIn) et sur les listes de badges techniques.
-- Structure sémantique : un seul `<h1>` par page, hiérarchie de titres respectée, `<nav>`, `<main>`, `<footer>` correctement balisés.
+- `aria-label`/`aria-current` sur la nav active, et sur les liens ouvrant un nouvel onglet (GitHub, LinkedIn).
+- Structure sémantique : un seul `<h1>` sur la page, hiérarchie de titres respectée (`<h2>` par section), `<nav>`, `<main>`, `<footer>` correctement balisés.
 
 ## Sécurité des dépendances
 
-Le projet est figé sur Next.js 14 (App Router) comme demandé, à la version patchée la plus récente de la branche (`14.2.35`). `npm audit` signale encore quelques avisos GitHub dont le correctif officiel n'a été backporté que sur les branches 15.x/16.x de Next.js — ils sont donc inhérents au choix de rester sur la v14. Pour les éliminer complètement, il faudrait migrer vers Next.js 15 ou 16 (hors périmètre de cette demande).
+Le projet est figé sur Next.js 14 (App Router) comme demandé, à la version patchée la plus récente de la branche (`14.2.35`). `npm audit` signale encore quelques avis GitHub dont le correctif officiel n'a été backporté que sur les branches 15.x/16.x de Next.js — ils sont donc inhérents au choix de rester sur la v14. Pour les éliminer complètement, il faudrait migrer vers Next.js 15 ou 16 (hors périmètre de cette demande).

@@ -25,8 +25,8 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://rayane-bahmed.verce
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${profile.name} — Portfolio`,
-    template: `%s — ${profile.name}`,
+    default: `${profile.name} | Portfolio`,
+    template: `%s | ${profile.name}`,
   },
   description: profile.bio,
   keywords: [
@@ -41,13 +41,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    siteName: `${profile.name} — Portfolio`,
-    title: `${profile.name} — Portfolio`,
+    siteName: `${profile.name} | Portfolio`,
+    title: `${profile.name} | Portfolio`,
     description: profile.bio,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.name} — Portfolio`,
+    title: `${profile.name} | Portfolio`,
     description: profile.bio,
   },
 };
