@@ -56,15 +56,6 @@ export default function HomePage() {
             <DownloadIcon className="h-4 w-4" />
             CV
           </a>
-          <a
-            href="/lettre-recommandation.pdf"
-            download
-            aria-label="Télécharger la lettre de recommandation (PDF)"
-            className="inline-flex items-center gap-2 rounded-xl border border-border px-5 py-3 text-sm font-semibold text-ink transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
-          >
-            <DownloadIcon className="h-4 w-4" />
-            Lettre de recommandation
-          </a>
         </div>
 
         <dl className="mt-12 grid grid-cols-1 gap-6 border-t border-border-subtle pt-8 sm:grid-cols-3">
