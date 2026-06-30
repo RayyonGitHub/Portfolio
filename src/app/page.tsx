@@ -27,11 +27,11 @@ export default function HomePage() {
   return (
     <>
       {/* ── Hero ───────────────────────────────────────────────── */}
-      <section id="top" className="mx-auto max-w-content scroll-mt-20 px-6 pb-20 pt-20 sm:pt-28">
+      <section id="top" className="mx-auto max-w-content scroll-mt-20 px-4 pb-16 pt-16 sm:px-6 sm:pt-28 sm:pb-20">
         <p className="font-display text-sm font-semibold uppercase tracking-widest text-accent">
           {profile.tagline}
         </p>
-        <h1 className="mt-4 max-w-3xl font-display text-4xl font-semibold tracking-tight text-ink sm:text-6xl">
+        <h1 className="mt-4 max-w-3xl font-display text-3xl font-semibold tracking-tight text-ink sm:text-5xl lg:text-6xl">
           {profile.name}
         </h1>
         <p className="mt-4 max-w-2xl text-lg font-medium text-ink-muted sm:text-xl">{profile.title}</p>
@@ -44,7 +44,7 @@ export default function HomePage() {
           ))}
         </div>
 
-        <div className="mt-8 flex flex-wrap items-center gap-3">
+        <div className="mt-8 flex flex-wrap items-center gap-2 sm:gap-3">
           <a
             href="#competences"
             className="inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-soft focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
@@ -113,7 +113,7 @@ export default function HomePage() {
       {/* ── Compétences ────────────────────────────────────────── */}
       <section
         id="competences"
-        className="mx-auto max-w-content scroll-mt-20 px-6 pb-20"
+        className="mx-auto max-w-content scroll-mt-20 px-4 pb-16 sm:px-6 sm:pb-20"
         aria-labelledby="competences-heading"
       >
         <h2 id="competences-heading" className="sr-only">Compétences</h2>
@@ -142,7 +142,7 @@ export default function HomePage() {
       {/* ── Projets ────────────────────────────────────────────── */}
       <section
         id="projets"
-        className="mx-auto max-w-content scroll-mt-20 px-6 pb-20"
+        className="mx-auto max-w-content scroll-mt-20 px-4 pb-16 sm:px-6 sm:pb-20"
         aria-labelledby="projets-heading"
       >
         <h2 id="projets-heading" className="sr-only">Projets</h2>
@@ -162,7 +162,7 @@ export default function HomePage() {
       {/* ── Formation ──────────────────────────────────────────── */}
       <section
         id="formation"
-        className="mx-auto max-w-content scroll-mt-20 px-6 pb-20"
+        className="mx-auto max-w-content scroll-mt-20 px-4 pb-16 sm:px-6 sm:pb-20"
         aria-labelledby="formation-heading"
       >
         <h2 id="formation-heading" className="sr-only">Formation</h2>
@@ -192,7 +192,7 @@ export default function HomePage() {
       {/* ── Expériences ────────────────────────────────────────── */}
       <section
         id="experiences"
-        className="mx-auto max-w-content scroll-mt-20 px-6 pb-20"
+        className="mx-auto max-w-content scroll-mt-20 px-4 pb-16 sm:px-6 sm:pb-20"
         aria-labelledby="experiences-heading"
       >
         <h2 id="experiences-heading" className="sr-only">Expériences</h2>
@@ -215,7 +215,7 @@ export default function HomePage() {
       {/* ── Contact ────────────────────────────────────────────── */}
       <section
         id="contact"
-        className="mx-auto max-w-content scroll-mt-20 px-6 pb-24"
+        className="mx-auto max-w-content scroll-mt-20 px-4 pb-20 sm:px-6 sm:pb-24"
         aria-labelledby="contact-heading"
       >
         <h2 id="contact-heading" className="sr-only">Contact</h2>
