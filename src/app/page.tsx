@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { education, experiences, profile } from "@/data/profile";
 import { projects } from "@/data/projects";
-import { languages, qualities, skillGroups } from "@/data/skills";
+import { skillGroups } from "@/data/skills";
 import { ProjectCard } from "@/components/ProjectCard";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Badge } from "@/components/Badge";
 import { ContactForm } from "@/components/ContactForm";
-import { ArrowIcon, DownloadIcon } from "@/components/icons";
+import { ArrowIcon, DownloadIcon, GitHubIcon, LinkedInIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Accueil",
@@ -21,6 +21,9 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
+  const github = profile.links.find((l) => l.label === "GitHub");
+  const linkedin = profile.links.find((l) => l.label === "LinkedIn");
+
   return (
     <>
       {/* ── Hero ───────────────────────────────────────────────── */}
@@ -55,6 +58,30 @@ export default function HomePage() {
           >
             Me contacter
           </a>
+          {github && (
+            <a
+              href={github.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Profil GitHub (nouvel onglet)"
+              className="inline-flex items-center gap-2 rounded-xl border border-border px-5 py-3 text-sm font-semibold text-ink transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+            >
+              <GitHubIcon className="h-4 w-4" />
+              GitHub
+            </a>
+          )}
+          {linkedin && (
+            <a
+              href={linkedin.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Profil LinkedIn (nouvel onglet)"
+              className="inline-flex items-center gap-2 rounded-xl border border-border px-5 py-3 text-sm font-semibold text-ink transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+            >
+              <LinkedInIcon className="h-4 w-4" />
+              LinkedIn
+            </a>
+          )}
           <a
             href="/cv-rayane-bahmed.pdf"
             target="_blank"
@@ -74,7 +101,7 @@ export default function HomePage() {
           </div>
           <div>
             <dt className="text-sm text-ink-faint">Formation actuelle</dt>
-            <dd className="mt-1 font-medium text-ink">{education[0]?.degree}</dd>
+            <dd className="mt-1 font-medium text-ink">Master MIAGE</dd>
           </div>
           <div>
             <dt className="text-sm text-ink-faint">Disponibilité</dt>
@@ -93,7 +120,7 @@ export default function HomePage() {
         <SectionHeading
           eyebrow="Compétences"
           title="Stack & savoir-faire"
-          description="Compétences techniques regroupées par catégorie, complétées par les langues parlées et les qualités personnelles."
+          description="Compétences techniques regroupées par catégorie."
         />
 
         <div className="mt-12 grid grid-cols-1 gap-10 sm:grid-cols-2">
@@ -109,35 +136,6 @@ export default function HomePage() {
               </ul>
             </div>
           ))}
-        </div>
-
-        <div className="mt-14 grid grid-cols-1 gap-10 border-t border-border-subtle pt-10 sm:grid-cols-2">
-          <div>
-            <h3 className="font-display text-lg font-semibold text-ink">Langues</h3>
-            <dl className="mt-4 flex flex-col gap-3">
-              {languages.map((lang) => (
-                <div
-                  key={lang.name}
-                  className="flex items-center justify-between border-b border-border-subtle pb-2"
-                >
-                  <dt className="font-medium text-ink">{lang.name}</dt>
-                  <dd className="text-sm text-ink-muted">{lang.level}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-
-          <div>
-            <h3 className="font-display text-lg font-semibold text-ink">Qualités</h3>
-            <ul className="mt-4 flex flex-col gap-3">
-              {qualities.map((quality) => (
-                <li key={quality} className="flex items-start gap-2 text-sm text-ink-muted">
-                  <span aria-hidden="true" className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
-                  {quality}
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
       </section>
 
@@ -161,50 +159,57 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Parcours ───────────────────────────────────────────── */}
-      <section className="mx-auto max-w-content px-6 pb-20" aria-labelledby="parcours-heading">
-        <h2 id="parcours-heading" className="sr-only">Expérience et formation</h2>
-        <SectionHeading eyebrow="Parcours" title="Expérience & formation" />
+      {/* ── Formation ──────────────────────────────────────────── */}
+      <section
+        id="formation"
+        className="mx-auto max-w-content scroll-mt-20 px-6 pb-20"
+        aria-labelledby="formation-heading"
+      >
+        <h2 id="formation-heading" className="sr-only">Formation</h2>
+        <SectionHeading eyebrow="Parcours" title="Formation" />
 
-        <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2">
-          <div>
-            <h3 className="font-display text-lg font-semibold text-ink">Expérience professionnelle</h3>
-            <ul className="mt-4 flex flex-col gap-6">
-              {experiences.map((exp) => (
-                <li key={exp.role + exp.period} className="border-l-2 border-border pl-4">
-                  <p className="text-sm text-ink-faint">{exp.period}</p>
-                  <p className="mt-1 font-medium text-ink">
-                    {exp.role} <span className="text-ink-muted">({exp.context})</span>
-                  </p>
-                  <p className="mt-1 text-sm leading-relaxed text-ink-muted">{exp.description}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <ul className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+          {education.map((edu) => (
+            <li key={edu.degree} className="rounded-2xl border border-border bg-bg-raised p-6">
+              <p className="text-xs font-semibold uppercase tracking-widest text-accent">{edu.period}</p>
+              <p className="mt-2 font-display text-base font-semibold text-ink">{edu.degree}</p>
+              <p className="mt-1 text-sm text-ink-muted">{edu.school}</p>
+              {edu.courses && edu.courses.length > 0 && (
+                <ul className="mt-4 flex flex-col gap-2 border-t border-border-subtle pt-4" aria-label="Matières">
+                  {edu.courses.map((course) => (
+                    <li key={course} className="flex items-start gap-2 text-xs text-ink-muted">
+                      <span aria-hidden="true" className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-accent" />
+                      {course}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ul>
+      </section>
 
-          <div>
-            <h3 className="font-display text-lg font-semibold text-ink">Formation</h3>
-            <ul className="mt-4 flex flex-col gap-8">
-              {education.map((edu) => (
-                <li key={edu.degree} className="border-l-2 border-border pl-4">
-                  <p className="text-sm text-ink-faint">{edu.period}</p>
-                  <p className="mt-1 font-medium text-ink">{edu.degree}</p>
-                  <p className="mt-0.5 text-sm text-ink-muted">{edu.school}</p>
-                  {edu.courses && edu.courses.length > 0 && (
-                    <ul className="mt-2 flex flex-col gap-1" aria-label={`Matières — ${edu.degree}`}>
-                      {edu.courses.map((course) => (
-                        <li key={course} className="flex items-start gap-2 text-xs text-ink-faint">
-                          <span aria-hidden="true" className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-accent/60" />
-                          {course}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+      {/* ── Expériences ────────────────────────────────────────── */}
+      <section
+        id="experiences"
+        className="mx-auto max-w-content scroll-mt-20 px-6 pb-20"
+        aria-labelledby="experiences-heading"
+      >
+        <h2 id="experiences-heading" className="sr-only">Expériences</h2>
+        <SectionHeading eyebrow="Parcours" title="Expériences" />
+
+        <ul className="mt-10 flex flex-col gap-6">
+          {experiences.map((exp) => (
+            <li key={exp.role + exp.period} className="rounded-2xl border border-border bg-bg-raised p-6">
+              <p className="text-xs font-semibold uppercase tracking-widest text-accent">{exp.period}</p>
+              <p className="mt-2 font-display text-base font-semibold text-ink">
+                {exp.role}{" "}
+                <span className="font-normal text-ink-muted">({exp.context})</span>
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-ink-muted">{exp.description}</p>
+            </li>
+          ))}
+        </ul>
       </section>
 
       {/* ── Contact ────────────────────────────────────────────── */}
