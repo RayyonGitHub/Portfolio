@@ -21,6 +21,7 @@ export const projects: Project[] = [
     ],
     category: "web",
     featured: true,
+    image: "/images/projects/athlo.jpeg",
     repos: [
       { label: "Back-end (Django REST)", url: "https://github.com/RayyonGitHub/ATHLO_COACHING_BACK" },
       { label: "Front-end Web (React)", url: "https://github.com/RayyonGitHub/ATHLO_COACHING_FRONT" },
@@ -36,6 +37,7 @@ export const projects: Project[] = [
     stack: ["FastAPI", "SQLAlchemy", "Pydantic", "SQLite", "Ollama", "React 19", "Vite", "Tailwind CSS"],
     category: "web",
     featured: true,
+    image: "/images/projects/stockit.jpeg",
     repos: [
       { label: "Back-end (FastAPI)", url: "https://github.com/RayyonGitHub/Outil_Gestion_Stock_Back" },
       { label: "Front-end (React / Vite)", url: "https://github.com/RayyonGitHub/Outil_Gestion_Stock_Front" },
@@ -50,6 +52,7 @@ export const projects: Project[] = [
     stack: ["Kotlin", "Android CameraX", "MediaCodec", "Supabase", "SQL", "SHA-256"],
     category: "mobile",
     featured: true,
+    image: "/images/projects/dashcam.jpeg",
     repos: [
       { label: "Encodeur (capture + preuves)", url: "https://github.com/RayyonGitHub/Encoder-Dashcam" },
       { label: "Décodeur (vérification)", url: "https://github.com/RayyonGitHub/Decoder-Dashcam" },
@@ -64,6 +67,7 @@ export const projects: Project[] = [
     stack: ["QtCreator", "QML", "C++"],
     category: "desktop",
     featured: false,
+    image: "/images/projects/simulateur.jpeg",
     repos: [],
   },
   {
@@ -75,6 +79,7 @@ export const projects: Project[] = [
     stack: ["Xampp", "SQL", "HTML", "CSS", "JavaScript", "PHP"],
     category: "freelance",
     featured: false,
+    image: "/images/projects/marketplace.jpeg",
     repos: [],
   },
 ];
