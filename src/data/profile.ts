@@ -4,7 +4,7 @@ export const profile: Profile = {
   name: "Rayane Bahmed",
   title: "Étudiant Master MIAGE | Développeur Full-Stack & Cybersécurité",
   tagline: "À la recherche d'une alternance pour septembre 2026.",
-  bio: "Actuellement en préparation pour intégrer ma deuxième année de Master MIAGE à l'Université de Haute-Alsace, je suis à la recherche d'une alternance pour septembre 2026. Sérieux, dynamique et avec une bonne capacité d'adaptation, j'ai une aisance relationnelle qui me permet de m'intégrer rapidement dans une équipe et de m'investir pleinement dans mes missions.",
+  bio: "Je conçois des applications complètes : APIs REST avec Django et FastAPI, interfaces React, applications mobiles Expo/React Native. Passionné par la cybersécurité (Mastère IPSSI), j'aborde chaque projet avec rigueur et une vraie curiosité technique. Actuellement en Master MIAGE à l'Université de Haute-Alsace, je cherche une alternance à partir de septembre 2026 pour rejoindre une équipe ambitieuse et contribuer à des projets concrets.",
   location: "Mulhouse, France",
   email: "rayanbahmed@gmail.com",
   phone: "07 66 87 98 92",

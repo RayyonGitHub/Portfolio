@@ -6,7 +6,7 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Badge } from "@/components/Badge";
 import { ContactForm } from "@/components/ContactForm";
-import { ArrowIcon } from "@/components/icons";
+import { ArrowIcon, DownloadIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Accueil",
@@ -46,6 +46,24 @@ export default function HomePage() {
             className="inline-flex items-center gap-2 rounded-xl border border-border px-5 py-3 text-sm font-semibold text-ink transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
           >
             Me contacter
+          </a>
+          <a
+            href="/cv-rayane-bahmed.pdf"
+            download
+            aria-label="Télécharger le CV de Rayane Bahmed (PDF)"
+            className="inline-flex items-center gap-2 rounded-xl border border-border px-5 py-3 text-sm font-semibold text-ink transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+          >
+            <DownloadIcon className="h-4 w-4" />
+            CV
+          </a>
+          <a
+            href="/lettre-recommandation.pdf"
+            download
+            aria-label="Télécharger la lettre de recommandation (PDF)"
+            className="inline-flex items-center gap-2 rounded-xl border border-border px-5 py-3 text-sm font-semibold text-ink transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+          >
+            <DownloadIcon className="h-4 w-4" />
+            Lettre de recommandation
           </a>
         </div>
 

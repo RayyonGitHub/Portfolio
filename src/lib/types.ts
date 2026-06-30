@@ -43,6 +43,7 @@ export interface Project {
   category: ProjectCategory;
   repos: ProjectRepo[];
   featured: boolean;
+  image?: string;
 }
 
 export interface SkillGroup {

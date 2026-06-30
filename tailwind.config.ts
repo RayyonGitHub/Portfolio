@@ -2,29 +2,28 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: ["./src/**/*.{ts,tsx}"],
-  darkMode: "class",
   theme: {
     extend: {
       colors: {
         bg: {
-          DEFAULT: "#0a0a0f",
-          raised: "#12131a",
-          hover: "#181a23",
+          DEFAULT: "rgb(var(--c-bg) / <alpha-value>)",
+          raised: "rgb(var(--c-bg-raised) / <alpha-value>)",
+          hover: "rgb(var(--c-bg-hover) / <alpha-value>)",
         },
         border: {
-          DEFAULT: "#232530",
-          subtle: "#1a1c25",
+          DEFAULT: "rgb(var(--c-border) / <alpha-value>)",
+          subtle: "rgb(var(--c-border-subtle) / <alpha-value>)",
         },
         ink: {
-          DEFAULT: "#f4f4f6",
-          muted: "#adadbd",
-          faint: "#73737f",
+          DEFAULT: "rgb(var(--c-ink) / <alpha-value>)",
+          muted: "rgb(var(--c-ink-muted) / <alpha-value>)",
+          faint: "rgb(var(--c-ink-faint) / <alpha-value>)",
         },
         accent: {
-          DEFAULT: "#ff8a3d",
-          strong: "#ff6a1f",
-          soft: "#ffb87a",
-          foreground: "#0a0a0f",
+          DEFAULT: "rgb(var(--c-accent) / <alpha-value>)",
+          strong: "rgb(var(--c-accent-strong) / <alpha-value>)",
+          soft: "rgb(var(--c-accent-soft) / <alpha-value>)",
+          foreground: "rgb(var(--c-accent-fg) / <alpha-value>)",
         },
       },
       fontFamily: {

@@ -4,7 +4,39 @@
 
 @layer base {
   :root {
-    color-scheme: dark;
+    color-scheme: light dark;
+
+    /* ── Mode clair (défaut) ─────────────────────────────── */
+    --c-bg:             249 249 251;
+    --c-bg-raised:      255 255 255;
+    --c-bg-hover:       242 242 246;
+    --c-border:         224 224 234;
+    --c-border-subtle:  236 236 243;
+    --c-ink:            15  15  23;
+    --c-ink-muted:      85  85  110;
+    --c-ink-faint:      144 144 168;
+    --c-accent:         209 100 32;
+    --c-accent-strong:  184 83  24;
+    --c-accent-soft:    224 128 64;
+    --c-accent-fg:      255 255 255;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      /* ── Mode sombre ─────────────────────────────────────── */
+      --c-bg:             10  10  15;
+      --c-bg-raised:      18  19  26;
+      --c-bg-hover:       24  26  35;
+      --c-border:         35  37  48;
+      --c-border-subtle:  26  28  37;
+      --c-ink:            244 244 246;
+      --c-ink-muted:      173 173 189;
+      --c-ink-faint:      115 115 127;
+      --c-accent:         255 138 61;
+      --c-accent-strong:  255 106 31;
+      --c-accent-soft:    255 184 122;
+      --c-accent-fg:      10  10  15;
+    }
   }
 
   html {
@@ -16,10 +48,16 @@
   }
 
   ::selection {
-    @apply bg-accent/30 text-ink;
+    @apply bg-accent/20 text-ink;
   }
 
   *:focus-visible {
     outline: none;
+  }
+
+  /* Panneau d'accessibilité : réduction des animations */
+  html.reduce-motion * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }
