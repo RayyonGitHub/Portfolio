@@ -7,7 +7,7 @@ export interface Profile {
   name: string;
   title: string;
   tagline: string;
-  bio: string;
+  bio: string[];
   location: string;
   email: string;
   phone: string;
@@ -25,6 +25,7 @@ export interface Education {
   degree: string;
   school: string;
   period: string;
+  courses?: string[];
 }
 
 export type ProjectCategory = "web" | "mobile" | "desktop" | "freelance";

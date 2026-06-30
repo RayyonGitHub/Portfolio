@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     default: `${profile.name} | Portfolio`,
     template: `%s | ${profile.name}`,
   },
-  description: profile.bio,
+  description: profile.bio.join(" "),
   keywords: [
     "Rayane Bahmed",
     "Développeur Full-Stack",
@@ -44,12 +44,12 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     siteName: `${profile.name} | Portfolio`,
     title: `${profile.name} | Portfolio`,
-    description: profile.bio,
+    description: profile.bio.join(" "),
   },
   twitter: {
     card: "summary_large_image",
     title: `${profile.name} | Portfolio`,
-    description: profile.bio,
+    description: profile.bio.join(" "),
   },
 };
 
